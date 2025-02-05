@@ -12,9 +12,10 @@ use Symfony\Component\RateLimiter\RateLimiterFactory;
 use Symfony\Component\Routing\Attribute\Route;
 use Symfony\Component\Security\Http\Attribute\CurrentUser;
 
+// todo : adapt this
 class AuthController extends AbstractController
 {
-    #[Route('/auth', name: 'api_login', methods: ['POST'])]
+    #[Route('/auth', name: 'auth', methods: ['POST'])]
     public function index(#[CurrentUser] ?User $user, Request $request, RateLimiterFactory $authLimiter): JsonResponse
     {
         $limiter = $authLimiter->create($request->getClientIp());
